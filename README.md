@@ -60,12 +60,6 @@ MAGI-PROTOCOL is designed for questions where reasonable perspectives can confli
 ## Running Locally
 > Will add later
 
-## Acknowledgements
-- Inspired by [lordpba/AI_Magi](https://github.com/lordpba/AI_Magi) 
-  and [TomaszRewak/MAGI](https://github.com/TomaszRewak/MAGI)
-- NERV UI aesthetic by 
-  [TheGreatGildo/nerv-ui](https://github.com/TheGreatGildo/nerv-ui)
-
 ## Copyright & Legal
 
 MAGI-PROTOCOL is an independent fan project and is not affiliated with, endorsed by, or connected to Gainax, Khara, or the Neon Genesis Evangelion franchise in any way.
