@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from agents import run_melchior, run_balthasar, run_casper
+from arbiter import run_arbiter
 
 load_dotenv()
 
@@ -33,7 +34,12 @@ async def debate(request: DebateRequest):
         run_balthasar(request.message),
         run_casper(request.message),
     )
+
+    results = list(results)
+    arbiter = await run_arbiter(results)
+
     return {
         "query": request.message,
-        "responses": results
+        "responses": results,
+        "arbiter": arbiter,
     }
