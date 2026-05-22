@@ -1,4 +1,4 @@
-# MAGI-OS
+# MAGI-PROTOCOL
 
 > A multi-agent AI operating system inspired by the MAGI supercomputer 
 > from Neon Genesis Evangelion.
