@@ -5,27 +5,57 @@
 
 Three AI agents - MELCHIOR (Logic), BALTHASAR (Emotion), and CASPER (Ethics) - debate every user query in real time. Watch them disagree, argue, and vote.
 
-## Status
-> Working on it rn
+## How It Works
+
+Every query is sent to three AI subsystems simultaneously. Each agent analyses 
+the question through a different lens and returns a response, a confidence score, 
+and a stance. A fourth ARBITER system then synthesises a final verdict.
+
+### The Three Subsystems
+
+> You can view the full prompts in `/backend/prompts/`
+
+| Agent | Designation | Reasoning Style |
+|---|---|---|
+| MELCHIOR-1 | Logic | Probabilistic, data-driven, outcome focused |
+| BALTHASAR-2 | Emotion | Empathetic, intuitive, human centred |
+| CASPER-3 | Ethics | Principled, moral, precedent aware |
+
+### Verdict States
+- `APPROVE` - majority vote in favour
+- `OPPOSE` - majority vote against
+- `DEADLOCK` - no majority reached, further deliberation required
+
+### What It Works Best For
+MAGI-PROTOCOL is designed for questions where reasonable perspectives can conflict:
+- Decisions - *"Should I quit my job?"*
+- Technical tradeoffs - *"Should I use PostgreSQL or MongoDB?"*
+- Ethical dilemmas - *"Is it acceptable to surveil employees?"*
+- Risk assessment - *"Should I go bungee jumping?"*
 
 ## Architecture
-- **Frontend:** Next.js
-- **Backend:** FastAPI
-- **Message Broker:** Redis
-- **LLM Runtime:** Ollama / OpenAI
-- **Deployment:** Docker Compose
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js |
+| Backend | FastAPI |
+| Message Broker | Redis |
+| LLM Runtime | Ollama or any LLM API |
+| Deployment | Docker Compose |
 
 ## Configuration
 
-Copy `.env.example` to `.env` and choose your LLM provider:
-
-| Provider | Set `LLM_PROVIDER` to | Notes |
+| Provider | `LLM_PROVIDER` | `API_BASE_URL` |
 |---|---|---|
-| Ollama | `ollama` | Requires Ollama installed, no API key needed |
-| OpenAI | `api` | Set `API_BASE_URL=https://api.openai.com/v1` |
-| Anthropic | `api` | Set `API_BASE_URL=https://api.anthropic.com/v1` |
-| Mistral | `api` | Set `API_BASE_URL=https://api.mistral.ai/v1` |
-| Groq | `api` | Set `API_BASE_URL=https://api.groq.com/openai/v1` |
+| Ollama (local) | `ollama` | — |
+| OpenAI | `api` | `https://api.openai.com/v1` |
+| Anthropic | `api` | `https://api.anthropic.com/v1` |
+| Mistral | `api` | `https://api.mistral.ai/v1` |
+| Groq | `api` | `https://api.groq.com/openai/v1` |
+
+> No API key needed for Ollama. For cloud providers, set `API_KEY` in your `.env`.
+> 
+> Use `.env.example` as a master reference for other `.env` files.
 
 ## Running Locally
 > Will add later
@@ -35,7 +65,6 @@ Copy `.env.example` to `.env` and choose your LLM provider:
   and [TomaszRewak/MAGI](https://github.com/TomaszRewak/MAGI)
 - NERV UI aesthetic by 
   [TheGreatGildo/nerv-ui](https://github.com/TheGreatGildo/nerv-ui)
-- Concept from Neon Genesis Evangelion (Gainax/Khara)
 
 ## Copyright & Legal
 
